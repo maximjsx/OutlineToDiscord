@@ -4,3 +4,8 @@ services:
     image: ghcr.io/nextfightnetwork/outlinewebhookbridge:latest
     ports:
       - "3123:3123"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3123/health"]
+      interval: 5s
+      timeout: 10s
+      retries: 10

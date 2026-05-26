@@ -13,6 +13,10 @@ const INCLUDE_COLLECTIONS = (process.env.INCLUDE_COLLECTIONS || "").split(',');
 
 console.log("Allowed Collections: " + INCLUDE_COLLECTIONS);
 
+app.get("/health", (req, res) => {
+  res.sendStatus(200);
+});
+
 app.post("/outline-webhook", async (req, res) => {
   const { event, payload } = req.body;
 
